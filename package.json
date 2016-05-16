@@ -1,11 +1,11 @@
 {
-  "name": "selenium",
-  "version": "1.0.0",
-  "description": "Automation deployment ",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "vinh pham",
-  "license": "MIT"
+    "name": "selenium",
+    "version": "1.0.0",
+    "description": "Automation deployment ",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "vinh pham",
+    "license": "MIT"
 }

@@ -1,24 +1,17 @@
- var assert = require('assert'),
-     fs = require('fs'),
-     test = require('selenium-webdriver/testing'),
-     webdriver = require('selenium-webdriver')
- var driver = new webdriver.Builder().usingServer().withCapabilities({
-     'browserName': 'firefox'
- }).build();
- var webdriver = require('selenium-webdriver'),
-     By = webdriver.By,
-     until = webdriver.until;
-
- const mochaTimeOut = 30000; //ms
- 
-test.describe('Ralph Says', function() {
-  this.timeout(mochaTimeOut);
-  test.it('shows a quote container', function () {
-  
-    driver.get('http://ralphsays.github.io');
-    driver.isElementPresent(webdriver.By.id('quote')).then(function(present) {
-      assert.equal(present, true, "Quote container not displayed");
-    });
-    driver.quit();
-  });
+var servicenow = require('servicenow');
+var config = {
+    instance: 'https://dev24882.service-now.com/',
+    username: 'admin',
+    password: 'Abc@123.'
+};
+var client = new servicenow.Client(config);
+client.getRecords("sys_update_preview_problem", "remote_update_set=33b5da724fb94200380f3879b110c7bc", function(error, result) {
+    if (!error) {
+        var data = result.records;
+        var logs = "";
+        data.forEach(function(element) {
+            logs += element.description;
+        }, this);
+        console.log(logs);
+    }
 });
